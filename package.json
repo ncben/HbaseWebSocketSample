@@ -1,0 +1,18 @@
+{
+  "name": "promo-builder",
+  "main": "app.js",
+  "start": "node app",
+  "description": "DJA Application",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "node-thrift": "~1.0.0-dev",
+    "moment": "~2.4.0"
+  },
+  "engines": {
+    "node": "0.8.4",
+    "npm": "1.1.49"
+  }
+}
+
