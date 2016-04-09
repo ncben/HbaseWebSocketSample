@@ -1,8 +1,8 @@
 {
-  "name": "promo-builder",
+  "name": "sample-hbase-websocket",
   "main": "app.js",
   "start": "node app",
-  "description": "DJA Application",
+  "description": "Sample Application",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

@@ -12,9 +12,10 @@ var HBaseTypes =  require('./db').HBaseTypes;
 	
 var memcachedStore = require('connect-memcached')(express);
 
+// Memcached session store
 sessionObj = new memcachedStore({
-				hosts: [ '10.208.132.243:11211' ],
-				prefix: 'promobuilder'
+				hosts: [ '1.2.3.4:11211' ],
+				prefix: 'sample'
 			});
 
 	
@@ -22,16 +23,19 @@ sessionObj = new memcachedStore({
 	
 var app = express();
 
+// If SSL is required
+/*
 var sslOptions = {
-  key: fs.readFileSync('cert/wildcard.dja.com.key'),
-  cert: fs.readFileSync('cert/wildcard.dja.com.crt'),
+  key: fs.readFileSync('cert/xxx.key'),
+  cert: fs.readFileSync('cert/xxx.crt'),
   ca: [
   	fs.readFileSync('cert/ca.crt', 'utf8')
 	]
 };
+*/
 
 var allowCrossDomain = function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://promocms.dja.com");
+  res.header("Access-Control-Allow-Origin", "https://xxx.com");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 };
@@ -45,7 +49,7 @@ app.use(express.json({limit: '250mb'}));
 app.use(express.urlencoded({limit: '250mb'}));
 app.use(express.cookieParser(''));
 app.use(express.session({
-	key: 'promobuilder',
+	key: 'somekey',
 	secret: '',
 	cookie: {
 		path: '/',
